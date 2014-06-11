@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91D19484169004C5E0C /* Foundation.framework */; };
+		86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91F19484169004C5E0C /* CoreGraphics.framework */; };
+		86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD92119484169004C5E0C /* UIKit.framework */; };
+		86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD92619484169004C5E0C /* InfoPlist.strings */; };
+		86DDD92A19484169004C5E0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD92919484169004C5E0C /* main.m */; };
+		86DDD92E19484169004C5E0C /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD92D19484169004C5E0C /* MainAppDelegate.m */; };
+		86DDD93119484169004C5E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD92F19484169004C5E0C /* Main.storyboard */; };
+		86DDD9341948416A004C5E0C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD9331948416A004C5E0C /* MainViewController.m */; };
+		86DDD9361948416A004C5E0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9351948416A004C5E0C /* Images.xcassets */; };
+		86DDD93D1948416A004C5E0C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD93C1948416A004C5E0C /* XCTest.framework */; };
+		86DDD93E1948416A004C5E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91D19484169004C5E0C /* Foundation.framework */; };
+		86DDD93F1948416A004C5E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD92119484169004C5E0C /* UIKit.framework */; };
+		86DDD9471948416A004C5E0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9451948416A004C5E0C /* InfoPlist.strings */; };
+		86DDD9491948416A004C5E0C /* SpeakDrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		86DDD9401948416A004C5E0C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 86DDD91219484169004C5E0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86DDD91919484169004C5E0C;
+			remoteInfo = SpeakDrawing;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		86DDD91A19484169004C5E0C /* SpeakDrawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakDrawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DDD91D19484169004C5E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		86DDD91F19484169004C5E0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		86DDD92119484169004C5E0C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		86DDD92519484169004C5E0C /* SpeakDrawing-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeakDrawing-Info.plist"; sourceTree = "<group>"; };
+		86DDD92719484169004C5E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		86DDD92919484169004C5E0C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		86DDD92B19484169004C5E0C /* SpeakDrawing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeakDrawing-Prefix.pch"; sourceTree = "<group>"; };
+		86DDD92C19484169004C5E0C /* MainAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainAppDelegate.h; sourceTree = "<group>"; };
+		86DDD92D19484169004C5E0C /* MainAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainAppDelegate.m; sourceTree = "<group>"; };
+		86DDD93019484169004C5E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		86DDD9321948416A004C5E0C /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		86DDD9331948416A004C5E0C /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		86DDD9351948416A004C5E0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		86DDD93B1948416A004C5E0C /* SpeakDrawingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakDrawingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		86DDD93C1948416A004C5E0C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		86DDD9441948416A004C5E0C /* SpeakDrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeakDrawingTests-Info.plist"; sourceTree = "<group>"; };
+		86DDD9461948416A004C5E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakDrawingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		86DDD91719484169004C5E0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */,
+				86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */,
+				86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86DDD9381948416A004C5E0C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD93D1948416A004C5E0C /* XCTest.framework in Frameworks */,
+				86DDD93F1948416A004C5E0C /* UIKit.framework in Frameworks */,
+				86DDD93E1948416A004C5E0C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		86DDD91119484169004C5E0C = {
+			isa = PBXGroup;
+			children = (
+				86DDD92319484169004C5E0C /* SpeakDrawing */,
+				86DDD9421948416A004C5E0C /* SpeakDrawingTests */,
+				86DDD91C19484169004C5E0C /* Frameworks */,
+				86DDD91B19484169004C5E0C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		86DDD91B19484169004C5E0C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD91A19484169004C5E0C /* SpeakDrawing.app */,
+				86DDD93B1948416A004C5E0C /* SpeakDrawingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		86DDD91C19484169004C5E0C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD91D19484169004C5E0C /* Foundation.framework */,
+				86DDD91F19484169004C5E0C /* CoreGraphics.framework */,
+				86DDD92119484169004C5E0C /* UIKit.framework */,
+				86DDD93C1948416A004C5E0C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86DDD92319484169004C5E0C /* SpeakDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD92C19484169004C5E0C /* MainAppDelegate.h */,
+				86DDD92D19484169004C5E0C /* MainAppDelegate.m */,
+				86DDD92F19484169004C5E0C /* Main.storyboard */,
+				86DDD9321948416A004C5E0C /* MainViewController.h */,
+				86DDD9331948416A004C5E0C /* MainViewController.m */,
+				86DDD9351948416A004C5E0C /* Images.xcassets */,
+				86DDD92419484169004C5E0C /* Supporting Files */,
+			);
+			path = SpeakDrawing;
+			sourceTree = "<group>";
+		};
+		86DDD92419484169004C5E0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD92519484169004C5E0C /* SpeakDrawing-Info.plist */,
+				86DDD92619484169004C5E0C /* InfoPlist.strings */,
+				86DDD92919484169004C5E0C /* main.m */,
+				86DDD92B19484169004C5E0C /* SpeakDrawing-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86DDD9421948416A004C5E0C /* SpeakDrawingTests */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */,
+				86DDD9431948416A004C5E0C /* Supporting Files */,
+			);
+			path = SpeakDrawingTests;
+			sourceTree = "<group>";
+		};
+		86DDD9431948416A004C5E0C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD9441948416A004C5E0C /* SpeakDrawingTests-Info.plist */,
+				86DDD9451948416A004C5E0C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		86DDD91919484169004C5E0C /* SpeakDrawing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86DDD94C1948416A004C5E0C /* Build configuration list for PBXNativeTarget "SpeakDrawing" */;
+			buildPhases = (
+				86DDD91619484169004C5E0C /* Sources */,
+				86DDD91719484169004C5E0C /* Frameworks */,
+				86DDD91819484169004C5E0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpeakDrawing;
+			productName = SpeakDrawing;
+			productReference = 86DDD91A19484169004C5E0C /* SpeakDrawing.app */;
+			productType = "com.apple.product-type.application";
+		};
+		86DDD93A1948416A004C5E0C /* SpeakDrawingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86DDD94F1948416A004C5E0C /* Build configuration list for PBXNativeTarget "SpeakDrawingTests" */;
+			buildPhases = (
+				86DDD9371948416A004C5E0C /* Sources */,
+				86DDD9381948416A004C5E0C /* Frameworks */,
+				86DDD9391948416A004C5E0C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				86DDD9411948416A004C5E0C /* PBXTargetDependency */,
+			);
+			name = SpeakDrawingTests;
+			productName = SpeakDrawingTests;
+			productReference = 86DDD93B1948416A004C5E0C /* SpeakDrawingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		86DDD91219484169004C5E0C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Main;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = YB;
+				TargetAttributes = {
+					86DDD93A1948416A004C5E0C = {
+						TestTargetID = 86DDD91919484169004C5E0C;
+					};
+				};
+			};
+			buildConfigurationList = 86DDD91519484169004C5E0C /* Build configuration list for PBXProject "SpeakDrawing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 86DDD91119484169004C5E0C;
+			productRefGroup = 86DDD91B19484169004C5E0C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				86DDD91919484169004C5E0C /* SpeakDrawing */,
+				86DDD93A1948416A004C5E0C /* SpeakDrawingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		86DDD91819484169004C5E0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD9361948416A004C5E0C /* Images.xcassets in Resources */,
+				86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */,
+				86DDD93119484169004C5E0C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86DDD9391948416A004C5E0C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD9471948416A004C5E0C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		86DDD91619484169004C5E0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD92A19484169004C5E0C /* main.m in Sources */,
+				86DDD9341948416A004C5E0C /* MainViewController.m in Sources */,
+				86DDD92E19484169004C5E0C /* MainAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		86DDD9371948416A004C5E0C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DDD9491948416A004C5E0C /* SpeakDrawingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		86DDD9411948416A004C5E0C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 86DDD91919484169004C5E0C /* SpeakDrawing */;
+			targetProxy = 86DDD9401948416A004C5E0C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		86DDD92619484169004C5E0C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86DDD92719484169004C5E0C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		86DDD92F19484169004C5E0C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86DDD93019484169004C5E0C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		86DDD9451948416A004C5E0C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				86DDD9461948416A004C5E0C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		86DDD94A1948416A004C5E0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		86DDD94B1948416A004C5E0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		86DDD94D1948416A004C5E0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		86DDD94E1948416A004C5E0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		86DDD9501948416A004C5E0C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpeakDrawing.app/SpeakDrawing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SpeakDrawingTests/SpeakDrawingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		86DDD9511948416A004C5E0C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SpeakDrawing.app/SpeakDrawing";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
+				INFOPLIST_FILE = "SpeakDrawingTests/SpeakDrawingTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		86DDD91519484169004C5E0C /* Build configuration list for PBXProject "SpeakDrawing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86DDD94A1948416A004C5E0C /* Debug */,
+				86DDD94B1948416A004C5E0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86DDD94C1948416A004C5E0C /* Build configuration list for PBXNativeTarget "SpeakDrawing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86DDD94D1948416A004C5E0C /* Debug */,
+				86DDD94E1948416A004C5E0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		86DDD94F1948416A004C5E0C /* Build configuration list for PBXNativeTarget "SpeakDrawingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86DDD9501948416A004C5E0C /* Debug */,
+				86DDD9511948416A004C5E0C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 86DDD91219484169004C5E0C /* Project object */;
+}
