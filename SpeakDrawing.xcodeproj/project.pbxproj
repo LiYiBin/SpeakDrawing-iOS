@@ -23,6 +23,10 @@
 		86DDD9491948416A004C5E0C /* SpeakDrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */; };
 		86DDD99819488D1D004C5E0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD99719488D1D004C5E0C /* AVFoundation.framework */; };
 		86DDD99A19488D26004C5E0C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD99919488D26004C5E0C /* AudioToolbox.framework */; };
+		86DDD9AD19489135004C5E0C /* AcousticModelEnglish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9A919489135004C5E0C /* AcousticModelEnglish.bundle */; };
+		86DDD9AE19489135004C5E0C /* AcousticModelSpanish.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9AA19489135004C5E0C /* AcousticModelSpanish.bundle */; };
+		86DDD9AF19489135004C5E0C /* OpenEars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD9AB19489135004C5E0C /* OpenEars.framework */; };
+		86DDD9B019489135004C5E0C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD9AC19489135004C5E0C /* Slt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakDrawingTests.m; sourceTree = "<group>"; };
 		86DDD99719488D1D004C5E0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		86DDD99919488D26004C5E0C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		86DDD9A919489135004C5E0C /* AcousticModelEnglish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelEnglish.bundle; sourceTree = "<group>"; };
+		86DDD9AA19489135004C5E0C /* AcousticModelSpanish.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelSpanish.bundle; sourceTree = "<group>"; };
+		86DDD9AB19489135004C5E0C /* OpenEars.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenEars.framework; sourceTree = "<group>"; };
+		86DDD9AC19489135004C5E0C /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +73,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				86DDD99A19488D26004C5E0C /* AudioToolbox.framework in Frameworks */,
+				86DDD9B019489135004C5E0C /* Slt.framework in Frameworks */,
 				86DDD99819488D1D004C5E0C /* AVFoundation.framework in Frameworks */,
 				86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */,
 				86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */,
 				86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */,
+				86DDD9AF19489135004C5E0C /* OpenEars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +100,7 @@
 			children = (
 				86DDD92319484169004C5E0C /* SpeakDrawing */,
 				86DDD9421948416A004C5E0C /* SpeakDrawingTests */,
+				86DDD9A719489119004C5E0C /* Thrid Frameworks */,
 				86DDD91C19484169004C5E0C /* Frameworks */,
 				86DDD91B19484169004C5E0C /* Products */,
 			);
@@ -158,6 +169,25 @@
 				86DDD9451948416A004C5E0C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		86DDD9A719489119004C5E0C /* Thrid Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD9A819489135004C5E0C /* OpenEars */,
+			);
+			name = "Thrid Frameworks";
+			sourceTree = "<group>";
+		};
+		86DDD9A819489135004C5E0C /* OpenEars */ = {
+			isa = PBXGroup;
+			children = (
+				86DDD9A919489135004C5E0C /* AcousticModelEnglish.bundle */,
+				86DDD9AA19489135004C5E0C /* AcousticModelSpanish.bundle */,
+				86DDD9AB19489135004C5E0C /* OpenEars.framework */,
+				86DDD9AC19489135004C5E0C /* Slt.framework */,
+			);
+			path = OpenEars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +269,8 @@
 			files = (
 				866FC4D6195011E200043F28 /* Main_iPad.storyboard in Resources */,
 				86DDD9361948416A004C5E0C /* Images.xcassets in Resources */,
+				86DDD9AE19489135004C5E0C /* AcousticModelSpanish.bundle in Resources */,
+				86DDD9AD19489135004C5E0C /* AcousticModelEnglish.bundle in Resources */,
 				86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenEars",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
 				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
@@ -392,6 +428,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenEars",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
 				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
