@@ -21,6 +21,8 @@
 		86DDD93F1948416A004C5E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD92119484169004C5E0C /* UIKit.framework */; };
 		86DDD9471948416A004C5E0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9451948416A004C5E0C /* InfoPlist.strings */; };
 		86DDD9491948416A004C5E0C /* SpeakDrawingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */; };
+		86DDD99819488D1D004C5E0C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD99719488D1D004C5E0C /* AVFoundation.framework */; };
+		86DDD99A19488D26004C5E0C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD99919488D26004C5E0C /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		86DDD9441948416A004C5E0C /* SpeakDrawingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpeakDrawingTests-Info.plist"; sourceTree = "<group>"; };
 		86DDD9461948416A004C5E0C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		86DDD9481948416A004C5E0C /* SpeakDrawingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpeakDrawingTests.m; sourceTree = "<group>"; };
+		86DDD99719488D1D004C5E0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		86DDD99919488D26004C5E0C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86DDD99A19488D26004C5E0C /* AudioToolbox.framework in Frameworks */,
+				86DDD99819488D1D004C5E0C /* AVFoundation.framework in Frameworks */,
 				86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */,
 				86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */,
 				86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */,
@@ -101,6 +107,8 @@
 		86DDD91C19484169004C5E0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86DDD99919488D26004C5E0C /* AudioToolbox.framework */,
+				86DDD99719488D1D004C5E0C /* AVFoundation.framework */,
 				86DDD91D19484169004C5E0C /* Foundation.framework */,
 				86DDD91F19484169004C5E0C /* CoreGraphics.framework */,
 				86DDD92119484169004C5E0C /* UIKit.framework */,
