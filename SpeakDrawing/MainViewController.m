@@ -75,9 +75,9 @@
 {
     self.languageModelGenerator = [[LanguageModelGenerator alloc] init];
     
-    NSArray *words = @[@"WORD", @"HELLO", @"GO"];
+    NSArray *words = @[@"你好"];
     NSString *name = @"EmotionGrammars";
-    self.modelPath = [AcousticModel pathToModel:@"AcousticModelEnglish"];
+    self.modelPath = [AcousticModel pathToModel:@"AcousticModelChinese"];
     
     NSError *error = [self.languageModelGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:self.modelPath];
     
