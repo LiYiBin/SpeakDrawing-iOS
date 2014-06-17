@@ -14,18 +14,39 @@
 #import <OpenEars/PocketsphinxController.h>
 #import <OpenEars/OpenEarsEventsObserver.h>
 
-#define kInit 0x00
-#define kChangeSingleLedColor 0x01
-
 #define RBL_SERVICE_UUID @"713D0000-503E-4C75-BA94-3148F18D941E"
 #define RBL_CHAR_TX_UUID @"713D0002-503E-4C75-BA94-3148F18D941E"
 #define RBL_CHAR_RX_UUID @"713D0003-503E-4C75-BA94-3148F18D941E"
 #define RBL_BLE_FRAMEWORK_VER 0x0200
 
+typedef enum {
+    EmotionTypeHappy,
+    EmotionTypeAngry,
+    EmotionTypeHelpless,
+    EmotionTypeWorried,
+    EmotionTypeNervous,
+    EmotionTypeExcited,
+    
+} EmotionType;
+
+#define kInit 0x00
+#define kHappy 0x01
+#define kAngry 0x02
+#define kHelpless 0x03
+#define kWorried 0x04
+#define kNervous 0x05
+#define kExcited 0x06
+
 @interface MainViewController () <OpenEarsEventsObserverDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 
+// for ui and action of button
+@property (weak, nonatomic) IBOutlet UIButton *microPhoneButton;
 - (IBAction)touchDownMicrophone:(id)sender;
 - (IBAction)touchUpMicrophone:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *messageButton;
+- (IBAction)dragMessage:(id)sender withEvent:(UIEvent *)event;
+- (IBAction)touchUpMessage:(id)sender;
 
 // for speech recognition
 @property (strong, nonatomic) LanguageModelGenerator *languageModelGenerator;
@@ -38,14 +59,28 @@
 
 - (void)setupSpeechRecognition;
 
+// for emotion recognition
+@property (strong, nonatomic) NSArray *happyWords;
+@property (strong, nonatomic) NSNumber *happyScore;
+@property (strong, nonatomic) NSArray *angryWords;
+@property (strong, nonatomic) NSNumber *angryScore;
+@property (strong, nonatomic) NSArray *helplessWords;
+@property (strong, nonatomic) NSNumber *helplessScore;
+@property (strong, nonatomic) NSArray *worriedWords;
+@property (strong, nonatomic) NSNumber *worriedScore;
+@property (strong, nonatomic) NSArray *nervousWords;
+@property (strong, nonatomic) NSNumber *nervousScore;
+@property (strong, nonatomic) NSArray *excitedWords;
+@property (strong, nonatomic) NSNumber *excitedScore;
+
 // for bluetooth
 @property (strong, nonatomic) CBCentralManager *centralManager;
 @property (strong, nonatomic) CBPeripheral *activePeripheral;
 
 // for effect
-- (void)sendLedDataByBLE:(NSData *)data;
+- (void)sendDataByBLE:(NSData *)data;
 - (void)sendInit;
-- (void)sendSingleLedColorByBLE:(int)led red:(int)red green:(int)green blue:(int)blue;
+- (void)sendEmotion:(EmotionType)type;
 
 @end
 
@@ -57,7 +92,7 @@
     // setup background
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background1"]];
 
-    // setup for bluetooth
+    // setup bluetooth
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{CBConnectPeripheralOptionNotifyOnNotificationKey: @YES}];
     
     [self setupSpeechRecognition];
@@ -69,13 +104,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initButtonsOfSpeech:(NSTimer *)timer
+{
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background1"]];
+    self.microPhoneButton.hidden = NO;
+    self.messageButton.hidden = YES;
+    self.messageButton.center = CGPointMake(232, 600);
+}
+
 #pragma mark - Speech Recognition
 
 - (void)setupSpeechRecognition
 {
     self.languageModelGenerator = [[LanguageModelGenerator alloc] init];
     
-    NSArray *words = @[@"你好"];
+    NSArray *words = [self setupEmotionWords];
     NSString *name = @"EmotionGrammars";
     self.modelPath = [AcousticModel pathToModel:@"AcousticModelChinese"];
     
@@ -106,22 +149,131 @@
     self.openEarsEventsObserver.delegate = self;
 }
 
+- (NSArray *)setupEmotionWords
+{
+    self.happyWords = @[@"開心"];
+    self.angryWords = @[@"討厭", @"幹"];
+    self.helplessWords = @[@"無奈", @"唉"];
+    self.worriedWords = @[@"煩"];
+    self.nervousWords = @[@"緊張"];
+    self.excitedWords = @[@"高興", @"爽"];
+    
+    NSMutableArray *allWords = [[NSMutableArray alloc] init];
+    [allWords addObjectsFromArray:self.happyWords];
+    [allWords addObjectsFromArray:self.angryWords];
+    [allWords addObjectsFromArray:self.helplessWords];
+    [allWords addObjectsFromArray:self.worriedWords];
+    [allWords addObjectsFromArray:self.nervousWords];
+    [allWords addObjectsFromArray:self.excitedWords];
+    
+    return (NSArray *)allWords;
+}
+
 #pragma mark IBAction for Speech Recognition
 
 - (IBAction)touchDownMicrophone:(id)sender
 {
+    self.happyScore = @(0);
+    self.angryScore = @(0);
+    self.helplessScore = @(0);
+    self.worriedScore = @(0);
+    self.nervousScore = @(0);
+    self.excitedScore = @(0);
+    
     [self.pocketspinxController startListeningWithLanguageModelAtPath:self.lmPath dictionaryAtPath:self.dicPath acousticModelAtPath:self.modelPath languageModelIsJSGF:false];
 }
 
 - (IBAction)touchUpMicrophone:(id)sender
 {
     [self.pocketspinxController stopListening];
+    
+    if (self.happyScore.intValue > 0 || self.angryScore.intValue > 0 || self.helplessScore.intValue > 0 || self.worriedScore.intValue > 0 || self.nervousScore.intValue > 0 || self.excitedScore.intValue > 0) {
+        
+        self.microPhoneButton.hidden = YES;
+        self.messageButton.hidden = NO;
+        self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2"]];
+    }
+}
+
+- (IBAction)dragMessage:(id)sender withEvent:(UIEvent *)event
+{
+    UIButton *button = (UIButton *)sender;
+    UITouch *touch = [[event touchesForView:button] anyObject];
+    
+    // get delta
+    CGPoint previousLocation = [touch previousLocationInView:button];
+    CGPoint location = [touch locationInView:button];
+    CGFloat delta_x = location.x - previousLocation.x;
+    CGFloat delta_y = location.y - previousLocation.y;
+    
+    // move button
+    button.center = CGPointMake(button.center.x + delta_x,
+                                button.center.y + delta_y);
+}
+
+- (IBAction)touchUpMessage:(id)sender
+{
+    // send emotion
+    NSArray *list = @[self.happyScore, self.angryScore, self.helplessScore, self.worriedScore, self.nervousScore, self.excitedScore];
+    NSArray *sorted = [list sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        if ([obj1 intValue] > [obj2 intValue]) {
+            return NSOrderedDescending;
+        } else if ([obj1 intValue] < [obj2 intValue]) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
+    
+    if (sorted[0] == self.happyScore) {
+        [self sendEmotion:EmotionTypeHappy];
+    } else if (sorted[0] == self.angryScore) {
+        [self sendEmotion:EmotionTypeAngry];
+    } else if (sorted[0] == self.helplessScore){
+        [self sendEmotion:EmotionTypeHelpless];
+    } else if (sorted[0] == self.worriedScore){
+        [self sendEmotion:EmotionTypeWorried];
+    } else if (sorted[0] == self.nervousScore){
+        [self sendEmotion:EmotionTypeNervous];
+    } else if (sorted[0] == self.excitedScore){
+        [self sendEmotion:EmotionTypeExcited];
+    }
+    
+    // button animation
+    UIButton *button = (UIButton *)sender;
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        button.center = CGPointMake(384, -500);
+    } completion:^(BOOL finished) {
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(initButtonsOfSpeech:) userInfo:nil repeats:NO];
+    }];
 }
 
 #pragma mark OpenEarsEventsObserverDelegate
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
+    
+    int value = 0;
+    if ([self.happyWords containsObject:hypothesis]) {
+        value = [self.happyScore intValue];
+        self.happyScore = @(value++);
+    } else if ([self.angryWords containsObject:hypothesis]) {
+        value = [self.angryScore intValue];
+        self.angryScore = @(value++);
+    } else if ([self.helplessWords containsObject:hypothesis]) {
+        value = [self.helplessScore intValue];
+        self.helplessScore = @(value++);
+    } else if ([self.worriedWords containsObject:hypothesis]) {
+        value = [self.worriedScore intValue];
+        self.worriedScore = @(value++);
+    } else if ([self.nervousWords containsObject:hypothesis]) {
+        value = [self.nervousScore intValue];
+        self.nervousScore = @(value++);
+    } else if ([self.excitedWords containsObject:hypothesis]) {
+        value = [self.excitedScore intValue];
+        self.excitedScore = @(value++);
+    }
 }
 
 - (void) pocketsphinxDidStartCalibration {
@@ -314,23 +466,43 @@
     UInt8 buf[] = {kInit};
     NSData *data = [NSData dataWithBytes:buf length:1];
     
-    [self sendLedDataByBLE:data];
+    [self sendDataByBLE:data];
 }
 
-- (void)sendSingleLedColorByBLE:(int)led red:(int)red green:(int)green blue:(int)blue
+- (void)sendEmotion:(EmotionType)type
 {
-    UInt8 buf[] = {kChangeSingleLedColor, 0x00, 0x00, 0x00, 0x00};
-    buf[1] = led;
-    buf[2] = red;
-    buf[3] = green;
-    buf[4] = blue;
+    UInt8 buf[] = { 0x00 };
     
-    NSData *data = [NSData dataWithBytes:buf length:5];
+    switch (type) {
+        case EmotionTypeHappy:
+            buf[0] = kHappy;
+            break;
+        case EmotionTypeAngry:
+            buf[0] = kAngry;
+            break;
+        case EmotionTypeHelpless:
+            buf[0] = kHelpless;
+            break;
+        case EmotionTypeWorried:
+            buf[0] = kWorried;
+            break;
+        case EmotionTypeNervous:
+            buf[0] = kNervous;
+            break;
+        case EmotionTypeExcited:
+            buf[0] = kExcited;
+            break;
+        default:
+            NSLog(@"Unknown emotion type!");
+            break;
+    }
     
-    [self sendLedDataByBLE:data];
+    NSData *data = [NSData dataWithBytes:buf length:1];
+    
+    [self sendDataByBLE:data];
 }
 
-- (void)sendLedDataByBLE:(NSData *)data
+- (void)sendDataByBLE:(NSData *)data
 {
     CBCharacteristic *characteristic = [self findCharacteristicOfLedEffect];
     

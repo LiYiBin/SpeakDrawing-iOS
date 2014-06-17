@@ -29,9 +29,24 @@
                                     <action selector="touchUpMicrophone:" destination="PUO-g5-dQ9" eventType="touchUpInside" id="bO1-cf-Iey"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKJ-gv-Sp2">
+                                <rect key="frame" x="232" y="600" width="304" height="304"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dragMessage:withEvent:" destination="PUO-g5-dQ9" eventType="touchDragInside" id="AZl-dT-fx7"/>
+                                    <action selector="touchUpMessage:" destination="PUO-g5-dQ9" eventType="touchUpInside" id="gHu-zu-PRd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="messageButton" destination="gKJ-gv-Sp2" id="IAc-aI-9r0"/>
+                        <outlet property="microPhoneButton" destination="9or-AU-sNr" id="nUJ-ei-2Zj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3G-Hc-4bm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +54,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Message" width="304" height="304"/>
         <image name="Microphone" width="304" height="304"/>
         <image name="MicrophonePressed" width="304" height="304"/>
     </resources>
