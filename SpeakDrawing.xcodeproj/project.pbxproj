@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		864A8E44195091BB007C2A1B /* AcousticModelChinese.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 864A8E43195091BB007C2A1B /* AcousticModelChinese.bundle */; };
+		864A8E4619509334007C2A1B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 864A8E4519509334007C2A1B /* CoreBluetooth.framework */; };
 		866FC4D6195011E200043F28 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866FC4D5195011E200043F28 /* Main_iPad.storyboard */; };
-		86699675194AF16600AB3973 /* AcousticModelChinese.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 86699674194AF16600AB3973 /* AcousticModelChinese.bundle */; };
 		86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91D19484169004C5E0C /* Foundation.framework */; };
 		86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91F19484169004C5E0C /* CoreGraphics.framework */; };
 		86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD92119484169004C5E0C /* UIKit.framework */; };
@@ -41,8 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		864A8E43195091BB007C2A1B /* AcousticModelChinese.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelChinese.bundle; sourceTree = "<group>"; };
+		864A8E4519509334007C2A1B /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		866FC4D5195011E200043F28 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
-		86699674194AF16600AB3973 /* AcousticModelChinese.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AcousticModelChinese.bundle; sourceTree = "<group>"; };
 		86DDD91A19484169004C5E0C /* SpeakDrawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakDrawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DDD91D19484169004C5E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86DDD91F19484169004C5E0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864A8E4619509334007C2A1B /* CoreBluetooth.framework in Frameworks */,
 				86DDD99A19488D26004C5E0C /* AudioToolbox.framework in Frameworks */,
 				86DDD9B019489135004C5E0C /* Slt.framework in Frameworks */,
 				86DDD99819488D1D004C5E0C /* AVFoundation.framework in Frameworks */,
@@ -120,6 +123,7 @@
 		86DDD91C19484169004C5E0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				864A8E4519509334007C2A1B /* CoreBluetooth.framework */,
 				86DDD99919488D26004C5E0C /* AudioToolbox.framework */,
 				86DDD99719488D1D004C5E0C /* AVFoundation.framework */,
 				86DDD91D19484169004C5E0C /* Foundation.framework */,
@@ -184,7 +188,7 @@
 		86DDD9A819489135004C5E0C /* OpenEars */ = {
 			isa = PBXGroup;
 			children = (
-				86699674194AF16600AB3973 /* AcousticModelChinese.bundle */,
+				864A8E43195091BB007C2A1B /* AcousticModelChinese.bundle */,
 				86DDD9A919489135004C5E0C /* AcousticModelEnglish.bundle */,
 				86DDD9AA19489135004C5E0C /* AcousticModelSpanish.bundle */,
 				86DDD9AB19489135004C5E0C /* OpenEars.framework */,
@@ -274,9 +278,8 @@
 				86DDD9361948416A004C5E0C /* Images.xcassets in Resources */,
 				86DDD9AE19489135004C5E0C /* AcousticModelSpanish.bundle in Resources */,
 				86DDD9AD19489135004C5E0C /* AcousticModelEnglish.bundle in Resources */,
+				864A8E44195091BB007C2A1B /* AcousticModelChinese.bundle in Resources */,
 				86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */,
-				86699675194AF16600AB3973 /* AcousticModelChinese.bundle in Resources */,
-				86DDD93119484169004C5E0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
