@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		866FC4D6195011E200043F28 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 866FC4D5195011E200043F28 /* Main_iPad.storyboard */; };
 		86DDD91E19484169004C5E0C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91D19484169004C5E0C /* Foundation.framework */; };
 		86DDD92019484169004C5E0C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD91F19484169004C5E0C /* CoreGraphics.framework */; };
 		86DDD92219484169004C5E0C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD92119484169004C5E0C /* UIKit.framework */; };
 		86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD92619484169004C5E0C /* InfoPlist.strings */; };
 		86DDD92A19484169004C5E0C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD92919484169004C5E0C /* main.m */; };
 		86DDD92E19484169004C5E0C /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD92D19484169004C5E0C /* MainAppDelegate.m */; };
-		86DDD93119484169004C5E0C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD92F19484169004C5E0C /* Main.storyboard */; };
 		86DDD9341948416A004C5E0C /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DDD9331948416A004C5E0C /* MainViewController.m */; };
 		86DDD9361948416A004C5E0C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86DDD9351948416A004C5E0C /* Images.xcassets */; };
 		86DDD93D1948416A004C5E0C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DDD93C1948416A004C5E0C /* XCTest.framework */; };
@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		866FC4D5195011E200043F28 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		86DDD91A19484169004C5E0C /* SpeakDrawing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakDrawing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DDD91D19484169004C5E0C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		86DDD91F19484169004C5E0C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,7 +45,6 @@
 		86DDD92B19484169004C5E0C /* SpeakDrawing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpeakDrawing-Prefix.pch"; sourceTree = "<group>"; };
 		86DDD92C19484169004C5E0C /* MainAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainAppDelegate.h; sourceTree = "<group>"; };
 		86DDD92D19484169004C5E0C /* MainAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainAppDelegate.m; sourceTree = "<group>"; };
-		86DDD93019484169004C5E0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		86DDD9321948416A004C5E0C /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		86DDD9331948416A004C5E0C /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		86DDD9351948416A004C5E0C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 			children = (
 				86DDD92C19484169004C5E0C /* MainAppDelegate.h */,
 				86DDD92D19484169004C5E0C /* MainAppDelegate.m */,
-				86DDD92F19484169004C5E0C /* Main.storyboard */,
+				866FC4D5195011E200043F28 /* Main_iPad.storyboard */,
 				86DDD9321948416A004C5E0C /* MainViewController.h */,
 				86DDD9331948416A004C5E0C /* MainViewController.m */,
 				86DDD9351948416A004C5E0C /* Images.xcassets */,
@@ -229,9 +229,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866FC4D6195011E200043F28 /* Main_iPad.storyboard in Resources */,
 				86DDD9361948416A004C5E0C /* Images.xcassets in Resources */,
 				86DDD92819484169004C5E0C /* InfoPlist.strings in Resources */,
-				86DDD93119484169004C5E0C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +281,6 @@
 				86DDD92719484169004C5E0C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		86DDD92F19484169004C5E0C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				86DDD93019484169004C5E0C /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		86DDD9451948416A004C5E0C /* InfoPlist.strings */ = {
@@ -380,7 +372,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
 				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -393,7 +387,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpeakDrawing/SpeakDrawing-Prefix.pch";
 				INFOPLIST_FILE = "SpeakDrawing/SpeakDrawing-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -457,6 +453,7 @@
 				86DDD94E1948416A004C5E0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		86DDD94F1948416A004C5E0C /* Build configuration list for PBXNativeTarget "SpeakDrawingTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +462,7 @@
 				86DDD9511948416A004C5E0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
