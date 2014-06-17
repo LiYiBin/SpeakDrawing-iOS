@@ -15,12 +15,18 @@
 
 @interface MainViewController () <OpenEarsEventsObserverDelegate>
 
+- (IBAction)touchDownMicrophone:(id)sender;
+- (IBAction)touchUpMicrophone:(id)sender;
+
 @property (strong, nonatomic) LanguageModelGenerator *languageModelGenerator;
 @property (strong, nonatomic) PocketsphinxController *pocketspinxController;
 @property (strong, nonatomic) OpenEarsEventsObserver *openEarsEventsObserver;
 
-- (IBAction)touchDownMicrophone:(id)sender;
-- (IBAction)touchUpMicrophone:(id)sender;
+@property (strong, nonatomic) NSString *modelPath;
+@property (strong, nonatomic) NSString *lmPath;
+@property (strong, nonatomic) NSString *dicPath;
+
+- (void)setupSpeechRecognition;
 
 @end
 
@@ -31,44 +37,8 @@
     [super viewDidLoad];
     // setup background
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"Background1"]];
-    
-    // testing OpenEars
-    self.languageModelGenerator = [[LanguageModelGenerator alloc] init];
-    
-    NSArray *words = @[@"WORD", @"HELLO", @"GO"];
-    NSString *name = @"name";
-    NSString *modelPath = [AcousticModel pathToModel:@"AcousticModelEnglish"];
-    
-    NSError *error = [self.languageModelGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:modelPath];
-    
-    NSDictionary *languageGeneratorResults = nil;
-    
-    NSString *lmPath = nil;
-    NSString *dicPath = nil;
-    
-    if ([error code] == noErr) {
-        
-        languageGeneratorResults = [error userInfo];
-        
-        lmPath = [languageGeneratorResults objectForKey:@"LMPath"];
-        dicPath = [languageGeneratorResults objectForKey:@"DictionaryPath"];
-        NSLog(@"Result: %@", languageGeneratorResults);
-        
-    } else {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }
-    
-    self.pocketspinxController = [[PocketsphinxController alloc] init];
-    
-//    self.pocketspinxController.verbosePocketSphinx = true; // for debug
-    self.pocketspinxController.outputAudio = true;
-    self.pocketspinxController.returnNbest = true;
-    self.pocketspinxController.nBestNumber = 5;
-    
-    [self.pocketspinxController startListeningWithLanguageModelAtPath:lmPath dictionaryAtPath:dicPath acousticModelAtPath:modelPath languageModelIsJSGF:false];
-    
-    self.openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
-    self.openEarsEventsObserver.delegate = self;
+
+    [self setupSpeechRecognition];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,18 +47,56 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Button's Action
+#pragma mark - Speech Recognition
+
+- (void)setupSpeechRecognition
+{
+    self.languageModelGenerator = [[LanguageModelGenerator alloc] init];
+    
+    NSArray *words = @[@"WORD", @"HELLO", @"GO"];
+    NSString *name = @"EmotionGrammars";
+    self.modelPath = [AcousticModel pathToModel:@"AcousticModelEnglish"];
+    
+    NSError *error = [self.languageModelGenerator generateLanguageModelFromArray:words withFilesNamed:name forAcousticModelAtPath:self.modelPath];
+    
+    NSDictionary *languageGeneratorResults = nil;
+    
+    if ([error code] == noErr) {
+        
+        languageGeneratorResults = [error userInfo];
+        
+        self.lmPath = [languageGeneratorResults objectForKey:@"LMPath"];
+        self.dicPath = [languageGeneratorResults objectForKey:@"DictionaryPath"];
+        NSLog(@"Result: %@", languageGeneratorResults);
+        
+    } else {
+        NSLog(@"Language Model Generator of OpenEars's Error: %@", [error localizedDescription]);
+    }
+    
+    self.pocketspinxController = [[PocketsphinxController alloc] init];
+    
+    //    self.pocketspinxController.verbosePocketSphinx = true; // for debug
+    self.pocketspinxController.outputAudio = true;
+    self.pocketspinxController.returnNbest = true;
+    self.pocketspinxController.nBestNumber = 5;
+    
+    self.openEarsEventsObserver = [[OpenEarsEventsObserver alloc] init];
+    self.openEarsEventsObserver.delegate = self;
+}
+
+#pragma mark IBAction for Speech Recognition
+
 - (IBAction)touchDownMicrophone:(id)sender
 {
-    
+    [self.pocketspinxController startListeningWithLanguageModelAtPath:self.lmPath dictionaryAtPath:self.dicPath acousticModelAtPath:self.modelPath languageModelIsJSGF:false];
 }
 
 - (IBAction)touchUpMicrophone:(id)sender
 {
-    
+    [self.pocketspinxController stopListening];
 }
 
-#pragma mark - OpenEarsEventsObserverDelegate
+#pragma mark OpenEarsEventsObserverDelegate
 
 - (void) pocketsphinxDidReceiveHypothesis:(NSString *)hypothesis recognitionScore:(NSString *)recognitionScore utteranceID:(NSString *)utteranceID {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
