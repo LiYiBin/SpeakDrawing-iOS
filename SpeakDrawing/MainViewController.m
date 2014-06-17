@@ -255,24 +255,28 @@ typedef enum {
 	NSLog(@"The received hypothesis is %@ with a score of %@ and an ID of %@", hypothesis, recognitionScore, utteranceID);
     
     int value = 0;
-    if ([self.happyWords containsObject:hypothesis]) {
-        value = [self.happyScore intValue];
-        self.happyScore = @(value++);
-    } else if ([self.angryWords containsObject:hypothesis]) {
-        value = [self.angryScore intValue];
-        self.angryScore = @(value++);
-    } else if ([self.helplessWords containsObject:hypothesis]) {
-        value = [self.helplessScore intValue];
-        self.helplessScore = @(value++);
-    } else if ([self.worriedWords containsObject:hypothesis]) {
-        value = [self.worriedScore intValue];
-        self.worriedScore = @(value++);
-    } else if ([self.nervousWords containsObject:hypothesis]) {
-        value = [self.nervousScore intValue];
-        self.nervousScore = @(value++);
-    } else if ([self.excitedWords containsObject:hypothesis]) {
-        value = [self.excitedScore intValue];
-        self.excitedScore = @(value++);
+    NSArray *words = [hypothesis componentsSeparatedByString:@" "];
+    
+    for (NSString *word in words) {
+        if ([self.happyWords containsObject:word]) {
+            value = [self.happyScore intValue];
+            self.happyScore = @(++value);
+        } else if ([self.angryWords containsObject:word]) {
+            value = [self.angryScore intValue];
+            self.angryScore = @(++value);
+        } else if ([self.helplessWords containsObject:word]) {
+            value = [self.helplessScore intValue];
+            self.helplessScore = @(++value);
+        } else if ([self.worriedWords containsObject:word]) {
+            value = [self.worriedScore intValue];
+            self.worriedScore = @(++value);
+        } else if ([self.nervousWords containsObject:word]) {
+            value = [self.nervousScore intValue];
+            self.nervousScore = @(++value);
+        } else if ([self.excitedWords containsObject:word]) {
+            value = [self.excitedScore intValue];
+            self.excitedScore = @(++value);
+        }
     }
 }
 
