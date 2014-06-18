@@ -20,22 +20,35 @@
 #define RBL_BLE_FRAMEWORK_VER 0x0200
 
 typedef enum {
-    EmotionTypeHappy,
-    EmotionTypeAngry,
-    EmotionTypeHelpless,
-    EmotionTypeWorried,
-    EmotionTypeNervous,
-    EmotionTypeExcited,
+    EmotionTypeAllHappy,
+    EmotionTypeAllAngry,
+    EmotionTypeAllHelpless,
+    EmotionTypeAllWorried,
+    EmotionTypeAllNervous,
+    EmotionTypeAllExcited,
+    EmotionTypeAddHappy,
+    EmotionTypeAddAngry,
+    EmotionTypeAddHelpless,
+    EmotionTypeAddWorried,
+    EmotionTypeAddNervous,
+    EmotionTypeAddExcited
     
 } EmotionType;
 
 #define kInit 0x00
-#define kHappy 0x01
-#define kAngry 0x02
-#define kHelpless 0x03
-#define kWorried 0x04
-#define kNervous 0x05
-#define kExcited 0x06
+#define kAllHappy 0x01
+#define kAllAngry 0x02
+#define kAllHelpless 0x03
+#define kAllWorried 0x04
+#define kAllNervous 0x05
+#define kAllExcited 0x06
+
+#define kAddHappy 0x11
+#define kAddAngry 0x12
+#define kAddHelpless 0x13
+#define kAddWorried 0x14
+#define kAddNervous 0x15
+#define kAddExcited 0x16
 
 @interface MainViewController () <OpenEarsEventsObserverDelegate, CBCentralManagerDelegate, CBPeripheralDelegate>
 
@@ -188,7 +201,7 @@ typedef enum {
     [self.pocketspinxController stopListening];
     
     if (self.happyScore.intValue > 0 || self.angryScore.intValue > 0 || self.helplessScore.intValue > 0 || self.worriedScore.intValue > 0 || self.nervousScore.intValue > 0 || self.excitedScore.intValue > 0) {
-        
+    
         self.microPhoneButton.hidden = YES;
         self.messageButton.hidden = NO;
         self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2"]];
@@ -225,18 +238,25 @@ typedef enum {
         }
     }];
     
+    // send emotion
     if (sorted[0] == self.happyScore) {
-        [self sendEmotion:EmotionTypeHappy];
+        [self sendEmotion:EmotionTypeAllHappy];
+//        [self sendEmotion:EmotionTypeAddHappy];
     } else if (sorted[0] == self.angryScore) {
-        [self sendEmotion:EmotionTypeAngry];
+        [self sendEmotion:EmotionTypeAllAngry];
+//        [self sendEmotion:EmotionTypeAddAngry];
     } else if (sorted[0] == self.helplessScore){
-        [self sendEmotion:EmotionTypeHelpless];
+        [self sendEmotion:EmotionTypeAllHelpless];
+//        [self sendEmotion:EmotionTypeAddHelpless];
     } else if (sorted[0] == self.worriedScore){
-        [self sendEmotion:EmotionTypeWorried];
+        [self sendEmotion:EmotionTypeAllWorried];
+//        [self sendEmotion:EmotionTypeAddWorried];
     } else if (sorted[0] == self.nervousScore){
-        [self sendEmotion:EmotionTypeNervous];
+        [self sendEmotion:EmotionTypeAllNervous];
+//        [self sendEmotion:EmotionTypeAddNervous];
     } else if (sorted[0] == self.excitedScore){
-        [self sendEmotion:EmotionTypeExcited];
+        [self sendEmotion:EmotionTypeAllExcited];
+//        [self sendEmotion:EmotionTypeAddExcited];
     }
     
     // button animation
@@ -478,23 +498,41 @@ typedef enum {
     UInt8 buf[] = { 0x00 };
     
     switch (type) {
-        case EmotionTypeHappy:
-            buf[0] = kHappy;
+        case EmotionTypeAllHappy:
+            buf[0] = kAllHappy;
             break;
-        case EmotionTypeAngry:
-            buf[0] = kAngry;
+        case EmotionTypeAllAngry:
+            buf[0] = kAllAngry;
             break;
-        case EmotionTypeHelpless:
-            buf[0] = kHelpless;
+        case EmotionTypeAllHelpless:
+            buf[0] = kAllHelpless;
             break;
-        case EmotionTypeWorried:
-            buf[0] = kWorried;
+        case EmotionTypeAllWorried:
+            buf[0] = kAllWorried;
             break;
-        case EmotionTypeNervous:
-            buf[0] = kNervous;
+        case EmotionTypeAllNervous:
+            buf[0] = kAllNervous;
             break;
-        case EmotionTypeExcited:
-            buf[0] = kExcited;
+        case EmotionTypeAllExcited:
+            buf[0] = kAllExcited;
+            break;
+        case EmotionTypeAddHappy:
+            buf[0] = kAddHappy;
+            break;
+        case EmotionTypeAddAngry:
+            buf[0] = kAddAngry;
+            break;
+        case EmotionTypeAddHelpless:
+            buf[0] = kAddHelpless;
+            break;
+        case EmotionTypeAddWorried:
+            buf[0] = kAddWorried;
+            break;
+        case EmotionTypeAddNervous:
+            buf[0] = kAddNervous;
+            break;
+        case EmotionTypeAddExcited:
+            buf[0] = kAddExcited;
             break;
         default:
             NSLog(@"Unknown emotion type!");
